@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>한컴단축키</title>
+    <link>https://inno-hi-inc.github.io/hancom-hotkey/appcast.xml</link>
+    <description>한컴단축키 업데이트 채널</description>
+    <language>ko</language>
+    <item>
+      <title>버전 0.4.0</title>
+      <pubDate>Thu, 16 Apr 2026 09:04:25 +0000</pubDate>
+      <sparkle:version>202604161804</sparkle:version>
+      <sparkle:shortVersionString>0.4.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/download/v0.4.0/HancomHotkey-0.4.0.dmg" length="1295299" type="application/octet-stream" sparkle:edSignature="HPD4kutI80cjpZsHeGfoxDTU9kg6WFEhKncoXpxE0l3LBbJB/R/JAUDmJxm582rPx62bWsPVlhJxVA1o6P0XDw==" />
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+# Xcode
+build/
+*.xcodeproj/xcuserdata
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.xcworkspace/xcuserdata
+DerivedData/
+*.xcuserstate
+*.xcuserdatad
+
+# Generated project (xcodegen produces it)
+HancomHotkey.xcodeproj/
+
+# macOS
+.DS_Store
+
+# Icon intermediates
+assets/AppIcon.iconset/
+assets/icon_master_1024.png
+
+# Release artifacts (optional — keep dist/ out of git, publish via Releases)
+dist/
+
+# Workspace build logs (contain local paths)
+_workspace/release-log*.txt
+
+# Generated icon intermediates
+assets/icon_master_1024.png
+
+# Node / Python caches from tooling
+.venv/
+__pycache__/
+node_modules/
+*.log

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>한컴단축키 — Mac에서 한컴 스타일 단축키를 ⌘ 기반으로</title>
+  <meta name="description" content="한컴오피스(HWP/한셀/한쇼) 맥판의 스타일 단축키를 ⌘0~4로 편리하게 바꿔주는 메뉴바 유틸리티" />
+  <meta property="og:title" content="한컴단축키" />
+  <meta property="og:description" content="Mac에서 한컴 스타일 단축키를 ⌘ 기반으로" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #3f60d6;
+      --accent-dark: #2f4fb5;
+      --card: #ffffff;
+      --border: #e5e7eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1115;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #7a97ef;
+        --accent-dark: #5677e2;
+        --card: #171a21;
+        --border: #252a34;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif; line-height: 1.6; }
+    header.hero { padding: 72px 24px 48px; text-align: center; }
+    .icon-large { width: 120px; height: 120px; border-radius: 28px; box-shadow: 0 10px 30px rgba(63, 96, 214, 0.25); }
+    h1 { font-size: 40px; margin: 20px 0 8px; letter-spacing: -0.02em; }
+    .tagline { font-size: 18px; color: var(--muted); margin: 0 0 32px; }
+    .cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: transform 0.05s ease; font-size: 16px; }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    main { max-width: 900px; margin: 0 auto; padding: 16px 24px 64px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 32px 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-size: 17px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    section { margin: 48px 0; }
+    h2 { font-size: 24px; margin: 0 0 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .kbd { font-family: SF Mono, Menlo, monospace; background: var(--bg); padding: 2px 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 13px; }
+    ol.steps { padding-left: 24px; }
+    ol.steps li { margin-bottom: 8px; }
+    footer { text-align: center; padding: 40px 16px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+    footer a { color: var(--muted); }
+    .meta { font-size: 13px; color: var(--muted); margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="icon.png" alt="한컴단축키 앱 아이콘" class="icon-large" />
+    <h1>한컴단축키</h1>
+    <p class="tagline">Mac에서 한컴 오피스 스타일 단축키를 <b>⌘0~4</b>로 편하게.</p>
+    <div class="cta">
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg" class="btn btn-primary">
+        ⬇︎ DMG 다운로드
+      </a>
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases" class="btn btn-secondary">
+        릴리즈 기록
+      </a>
+    </div>
+    <p class="meta">macOS 13 Ventura 이상 · Universal (Apple Silicon + Intel) · 서명 + 공증 완료</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>왜 필요한가</h2>
+      <p>한컴 오피스 Mac판의 스타일 단축키는 <span class="kbd">Ctrl + 숫자</span> 조합이라 맥 사용자에겐 어색합니다. 한컴단축키는 한글(HWP), 한셀, 한쇼가 활성일 때만 <span class="kbd">⌘ + 0~4</span>를 자동으로 <span class="kbd">Ctrl + 2~6</span>으로 변환합니다. 다른 앱에서는 원래 단축키 그대로 동작합니다.</p>
+    </section>
+
+    <section>
+      <h2>특징</h2>
+      <div class="grid">
+        <div class="card"><h3>▲ 네이티브 Swift</h3><p>Hammerspoon 없이도 메뉴바에 가볍게 상주. CPU/메모리 부담 최소.</p></div>
+        <div class="card"><h3>▲ 한컴 3종 지원</h3><p>한글, 한셀, 한쇼 모두 자동 감지.</p></div>
+        <div class="card"><h3>▲ 전역 토글</h3><p><span class="kbd">⌃⌥⌘P</span>로 어디서든 즉시 on/off.</p></div>
+        <div class="card"><h3>▲ 안전 설계</h3><p>암호 입력창(Secure Input)에서는 자동 비활성. 앱이 비활성일 땐 키 변환 안 함.</p></div>
+        <div class="card"><h3>▲ 자동 업데이트</h3><p>Sparkle 통합. 버그 수정과 기능 개선이 즉시 전달.</p></div>
+        <div class="card"><h3>▲ 공증 완료</h3><p>Apple Developer ID 서명 + 공증. Gatekeeper 경고 없이 바로 설치.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>기본 매핑</h2>
+      <table>
+        <thead>
+          <tr><th>누르는 키</th><th>HWP에 전송</th><th>적용되는 스타일</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="kbd">⌘ 0</span></td><td><span class="kbd">⌃ 2</span></td><td>스타일 목록의 2번째</td></tr>
+          <tr><td><span class="kbd">⌘ 1</span></td><td><span class="kbd">⌃ 3</span></td><td>스타일 목록의 3번째</td></tr>
+          <tr><td><span class="kbd">⌘ 2</span></td><td><span class="kbd">⌃ 4</span></td><td>스타일 목록의 4번째</td></tr>
+          <tr><td><span class="kbd">⌘ 3</span></td><td><span class="kbd">⌃ 5</span></td><td>스타일 목록의 5번째</td></tr>
+          <tr><td><span class="kbd">⌘ 4</span></td><td><span class="kbd">⌃ 6</span></td><td>스타일 목록의 6번째</td></tr>
+        </tbody>
+      </table>
+      <p>한컴 오피스는 <b>스타일 이름이 아니라 목록 순서</b>로 단축키를 붙입니다. 원하는 스타일을 ⌘0~4에 배치하려면, HWP <b>서식 → 스타일</b>에서 목록 순서를 바꾸세요. 앱 설정의 단축키 탭에 5단계 가이드가 있습니다.</p>
+    </section>
+
+    <section>
+      <h2>설치</h2>
+      <ol class="steps">
+        <li>위의 <b>DMG 다운로드</b> 버튼 클릭</li>
+        <li>DMG 파일 더블클릭 → <b>한컴단축키.app</b>을 <b>Applications</b>로 드래그</li>
+        <li>Launchpad에서 <b>한컴단축키</b> 실행</li>
+        <li>첫 실행 시 안내에 따라 <b>접근성 권한</b> 부여 (시스템 설정 → 개인정보 보호 및 보안 → 접근성)</li>
+        <li>한글, 한셀, 한쇼에서 <span class="kbd">⌘ 0~4</span> 눌러 확인</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>호환</h2>
+      <p>macOS 13 Ventura 이상. Apple Silicon 및 Intel 맥 모두 지원 (Universal binary).</p>
+      <p>한컴 오피스 버전: v12.30 이상에서 검증. 다른 버전에서도 일반적으로 동작합니다.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 INNO-HI Inc. · <a href="https://github.com/INNO-HI-Inc/hancom-hotkey">GitHub</a> · <a href="mailto:board@innohi.ai.kr">지원: board@innohi.ai.kr</a>
+  </footer>
+</body>
+</html>

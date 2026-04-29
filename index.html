@@ -4,10 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>한컴단축키 — Mac에서 한컴 스타일 단축키를 ⌘ 기반으로</title>
-  <meta name="description" content="한컴오피스(HWP/한셀/한쇼) 맥판의 스타일 단축키를 ⌘0~4로 편리하게 바꿔주는 메뉴바 유틸리티" />
+  <meta name="description" content="한컴오피스(HWP/한셀/한쇼) 맥판의 스타일 단축키를 ⌘0~4로 편리하게 바꿔주는 메뉴바 유틸리티. Apple 공증 완료, 무료 다운로드." />
+  <meta name="keywords" content="한컴, 한글, HWP, 한셀, 한쇼, 맥, macOS, 단축키, 키 리매핑, 메뉴바 앱" />
   <meta property="og:title" content="한컴단축키" />
   <meta property="og:description" content="Mac에서 한컴 스타일 단축키를 ⌘ 기반으로" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
   <meta property="og:url" content="https://inno-hi-inc.github.io/hancom-hotkey/" />
   <meta property="og:image" content="https://inno-hi-inc.github.io/hancom-hotkey/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -16,7 +18,37 @@
   <meta name="twitter:title" content="한컴단축키" />
   <meta name="twitter:description" content="Mac에서 한컴 스타일 단축키를 ⌘ 기반으로" />
   <meta name="twitter:image" content="https://inno-hi-inc.github.io/hancom-hotkey/og-image.png" />
+  <link rel="canonical" href="https://inno-hi-inc.github.io/hancom-hotkey/" />
+  <link rel="alternate" hreflang="ko" href="https://inno-hi-inc.github.io/hancom-hotkey/" />
+  <link rel="alternate" hreflang="en" href="https://inno-hi-inc.github.io/hancom-hotkey/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://inno-hi-inc.github.io/hancom-hotkey/" />
   <link rel="icon" type="image/png" href="icon.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "한컴단축키",
+    "alternateName": "HancomHotkey",
+    "description": "한컴오피스(HWP/한셀/한쇼) 맥판의 스타일 단축키를 ⌘0~4로 바꿔주는 메뉴바 유틸리티",
+    "url": "https://inno-hi-inc.github.io/hancom-hotkey/",
+    "image": "https://inno-hi-inc.github.io/hancom-hotkey/og-image.png",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "macOS 13.0 or later",
+    "softwareVersion": "0.4.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW",
+      "availability": "https://schema.org/InStock"
+    },
+    "downloadUrl": "https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg",
+    "author": {
+      "@type": "Organization",
+      "name": "INNO-HI Inc.",
+      "url": "https://innohi.ai.kr"
+    }
+  }
+  </script>
   <style>
     :root {
       --bg: #f6f7fb;
@@ -39,8 +71,14 @@
       }
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif; line-height: 1.6; }
-    header.hero { padding: 72px 24px 48px; text-align: center; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif; line-height: 1.6; scroll-behavior: smooth; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; padding: 10px 16px; background: var(--accent); color: #fff; font-weight: 600; z-index: 1000; border-radius: 0 0 8px 0; }
+    .skip-link:focus { left: 0; }
+    .lang-switch { position: absolute; top: 16px; right: 20px; font-size: 13px; color: var(--muted); }
+    .lang-switch a { color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; }
+    .lang-switch a[aria-current="page"] { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    header.hero { padding: 72px 24px 48px; text-align: center; position: relative; }
     .icon-large { width: 120px; height: 120px; border-radius: 28px; box-shadow: 0 10px 30px rgba(63, 96, 214, 0.25); }
     @media (prefers-color-scheme: dark) {
       .icon-large { box-shadow: 0 10px 30px rgba(122, 151, 239, 0.18); }
@@ -48,7 +86,7 @@
     h1 { font-size: 40px; margin: 20px 0 8px; letter-spacing: -0.02em; }
     .tagline { font-size: 18px; color: var(--muted); margin: 0 0 32px; }
     .cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: transform 0.05s ease; font-size: 16px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: transform 0.05s ease, background 0.15s ease; font-size: 16px; }
     .btn:active { transform: translateY(1px); }
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: var(--accent-dark); }
@@ -58,15 +96,17 @@
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
     .card h3 { margin: 0 0 8px; font-size: 17px; }
     .card p { margin: 0; color: var(--muted); font-size: 14px; }
-    section { margin: 48px 0; }
+    section { margin: 48px 0; scroll-margin-top: 24px; }
     h2 { font-size: 24px; margin: 0 0 20px; }
+    h2 .anchor { color: var(--muted); text-decoration: none; opacity: 0; margin-left: 8px; font-weight: 400; }
+    h2:hover .anchor { opacity: 0.6; }
     table { width: 100%; border-collapse: collapse; margin: 16px 0; }
     th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
     th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
-    .kbd { font-family: SF Mono, Menlo, monospace; background: var(--bg); padding: 2px 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 13px; }
+    .kbd { font-family: SF Mono, Menlo, monospace; background: var(--bg); padding: 2px 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 13px; white-space: nowrap; }
     ol.steps { padding-left: 24px; }
     ol.steps li { margin-bottom: 8px; }
-    footer { text-align: center; padding: 40px 16px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+    footer { text-align: center; padding: 40px 16px 100px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
     footer a { color: var(--muted); }
     .meta { font-size: 13px; color: var(--muted); margin-top: 14px; }
     .demo { display: flex; gap: 18px; align-items: center; justify-content: center; flex-wrap: wrap; margin: 20px 0 8px; }
@@ -79,40 +119,61 @@
     .demo-side.before { opacity: 0.7; }
     .demo-side.after { border-color: var(--accent); }
     @media (max-width: 520px) { .demo-arrow { transform: rotate(90deg); } }
+    details.faq { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+    details.faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq summary::after { content: "+"; color: var(--muted); font-size: 22px; line-height: 1; transition: transform 0.2s; }
+    details.faq[open] summary::after { transform: rotate(45deg); }
+    details.faq[open] { border-color: var(--accent); }
+    details.faq .answer { margin-top: 12px; color: var(--muted); font-size: 14px; }
+    details.faq .answer p { margin: 0 0 8px; }
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); border-top: 1px solid var(--border); padding: 12px 16px; display: none; z-index: 100; box-shadow: 0 -4px 12px rgba(0,0,0,0.08); }
+    .sticky-cta a { width: 100%; justify-content: center; }
+    @media (max-width: 640px) {
+      .sticky-cta { display: block; }
+      footer { padding-bottom: 100px; }
+      h1 { font-size: 32px; }
+      header.hero { padding: 56px 20px 40px; }
+    }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">본문으로 건너뛰기</a>
   <header class="hero">
-    <img src="icon.png" alt="한컴단축키 앱 아이콘" class="icon-large" />
+    <div class="lang-switch">
+      <a href="/hancom-hotkey/" aria-current="page">KO</a>
+      <a href="/hancom-hotkey/en/">EN</a>
+    </div>
+    <img src="icon.png" alt="한컴단축키 앱 아이콘 — 메뉴바에서 한컴 단축키를 자동 변환" class="icon-large" />
     <h1>한컴단축키</h1>
     <p class="tagline">Mac에서 한컴 오피스 스타일 단축키를 <b>⌘0~4</b>로 편하게.</p>
     <div class="cta">
-      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg" class="btn btn-primary">
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg" class="btn btn-primary" rel="noopener">
         ⬇︎ 무료 다운로드 (macOS 13+)
       </a>
-      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases" class="btn btn-secondary">
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases" class="btn btn-secondary" rel="noopener">
         릴리즈 기록
       </a>
     </div>
     <p class="meta">INNO-HI Inc. 공식 배포 · Universal (Apple Silicon + Intel) · Apple Developer ID 서명 + 공증 완료</p>
   </header>
 
-  <main>
-    <section>
-      <h2>한 눈에 보기</h2>
+  <main id="main">
+    <section id="overview" aria-labelledby="overview-h">
+      <h2 id="overview-h">한 눈에 보기 <a class="anchor" href="#overview" aria-label="이 섹션 링크">#</a></h2>
       <div class="demo">
         <div class="demo-side before">
           <div class="label">⚠︎ 기본 한컴 Mac판</div>
           <div class="keys">
-            <span class="keycap">⌃</span><span>+</span><span class="keycap">2</span>
+            <span class="keycap">⌃</span><span aria-hidden="true">+</span><span class="keycap">2</span>
           </div>
           <div class="result">맥에선 어색한 Ctrl 조합</div>
         </div>
-        <div class="demo-arrow">→</div>
+        <div class="demo-arrow" aria-hidden="true">→</div>
         <div class="demo-side after">
           <div class="label">✓ 한컴단축키 적용 후</div>
           <div class="keys">
-            <span class="keycap">⌘</span><span>+</span><span class="keycap">0</span>
+            <span class="keycap">⌘</span><span aria-hidden="true">+</span><span class="keycap">0</span>
           </div>
           <div class="result">자연스러운 ⌘ 조합 그대로</div>
         </div>
@@ -120,8 +181,8 @@
       <p style="text-align:center; color: var(--muted); font-size: 14px; margin-top: 8px;">한글(HWP)·한셀·한쇼가 활성일 때만 변환. 다른 앱에서는 원래 단축키 그대로.</p>
     </section>
 
-    <section>
-      <h2>특징</h2>
+    <section id="features" aria-labelledby="features-h">
+      <h2 id="features-h">특징 <a class="anchor" href="#features" aria-label="이 섹션 링크">#</a></h2>
       <div class="grid">
         <div class="card"><h3>▲ 네이티브 Swift</h3><p>Hammerspoon 없이도 메뉴바에 가볍게 상주. CPU/메모리 부담 최소.</p></div>
         <div class="card"><h3>▲ 한컴 3종 지원</h3><p>한글, 한셀, 한쇼 모두 자동 감지.</p></div>
@@ -132,25 +193,25 @@
       </div>
     </section>
 
-    <section>
-      <h2>기본 매핑</h2>
+    <section id="mapping" aria-labelledby="mapping-h">
+      <h2 id="mapping-h">기본 매핑 <a class="anchor" href="#mapping" aria-label="이 섹션 링크">#</a></h2>
       <table>
         <thead>
-          <tr><th>누르는 키</th><th>HWP에 전송</th><th>적용되는 스타일</th></tr>
+          <tr><th scope="col">누르는 키</th><th scope="col">HWP에 전송</th><th scope="col">스타일 목록 위치</th><th scope="col">예시 스타일명</th></tr>
         </thead>
         <tbody>
-          <tr><td><span class="kbd">⌘ 0</span></td><td><span class="kbd">⌃ 2</span></td><td>스타일 목록의 2번째</td></tr>
-          <tr><td><span class="kbd">⌘ 1</span></td><td><span class="kbd">⌃ 3</span></td><td>스타일 목록의 3번째</td></tr>
-          <tr><td><span class="kbd">⌘ 2</span></td><td><span class="kbd">⌃ 4</span></td><td>스타일 목록의 4번째</td></tr>
-          <tr><td><span class="kbd">⌘ 3</span></td><td><span class="kbd">⌃ 5</span></td><td>스타일 목록의 5번째</td></tr>
-          <tr><td><span class="kbd">⌘ 4</span></td><td><span class="kbd">⌃ 6</span></td><td>스타일 목록의 6번째</td></tr>
+          <tr><td><span class="kbd">⌘ 0</span></td><td><span class="kbd">⌃ 2</span></td><td>2번째</td><td>본문</td></tr>
+          <tr><td><span class="kbd">⌘ 1</span></td><td><span class="kbd">⌃ 3</span></td><td>3번째</td><td>제목 1</td></tr>
+          <tr><td><span class="kbd">⌘ 2</span></td><td><span class="kbd">⌃ 4</span></td><td>4번째</td><td>제목 2</td></tr>
+          <tr><td><span class="kbd">⌘ 3</span></td><td><span class="kbd">⌃ 5</span></td><td>5번째</td><td>제목 3</td></tr>
+          <tr><td><span class="kbd">⌘ 4</span></td><td><span class="kbd">⌃ 6</span></td><td>6번째</td><td>인용문 등</td></tr>
         </tbody>
       </table>
-      <p>한컴 오피스는 <b>스타일 이름이 아니라 목록 순서</b>로 단축키를 붙입니다. 원하는 스타일을 ⌘0~4에 배치하려면, HWP <b>서식 → 스타일</b>에서 목록 순서를 바꾸세요. 앱 설정의 단축키 탭에 5단계 가이드가 있습니다.</p>
+      <p style="font-size: 13px; color: var(--muted);">※ "예시 스타일명"은 한컴 오피스 기본 템플릿 기준입니다. 한컴은 <b>스타일 이름이 아니라 목록 순서</b>로 단축키를 붙이므로, 원하는 스타일을 ⌘0~4에 배치하려면 HWP <b>서식 → 스타일</b>에서 목록 순서를 조정하세요. 앱 설정의 단축키 탭에 5단계 가이드가 있습니다.</p>
     </section>
 
-    <section>
-      <h2>설치</h2>
+    <section id="install" aria-labelledby="install-h">
+      <h2 id="install-h">설치 <a class="anchor" href="#install" aria-label="이 섹션 링크">#</a></h2>
       <ol class="steps">
         <li>위의 <b>DMG 다운로드</b> 버튼 클릭</li>
         <li>DMG 파일 더블클릭 → <b>한컴단축키.app</b>을 <b>Applications</b>로 드래그</li>
@@ -160,8 +221,8 @@
       </ol>
     </section>
 
-    <section>
-      <h2>접근성 권한이 왜 필요한가요?</h2>
+    <section id="permissions" aria-labelledby="permissions-h">
+      <h2 id="permissions-h">접근성 권한이 왜 필요한가요? <a class="anchor" href="#permissions" aria-label="이 섹션 링크">#</a></h2>
       <div class="card" style="margin-bottom: 16px;">
         <h3 style="margin-bottom: 12px;">▲ 키 입력을 변환하려면 macOS의 <b>접근성</b> 권한이 필수입니다</h3>
         <p style="color: var(--text); margin-bottom: 12px;">앱이 <span class="kbd">⌘ 0</span>을 감지해서 <span class="kbd">⌃ 2</span>로 바꿔 한컴에 보내는 동작 자체가 macOS 기준 "키 후킹"이라, 접근성 권한 없이는 동작하지 않습니다.</p>
@@ -175,8 +236,71 @@
       <p style="font-size: 14px; color: var(--muted);"><b>설정 경로:</b> 시스템 설정 → 개인정보 보호 및 보안 → 접근성 → <b>한컴단축키</b> 토글 ON. 앱이 처음 실행되면 안내 화면이 직접 시스템 설정을 열어드립니다.</p>
     </section>
 
-    <section>
-      <h2>호환</h2>
+    <section id="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">자주 묻는 질문 <a class="anchor" href="#faq" aria-label="이 섹션 링크">#</a></h2>
+
+      <details class="faq">
+        <summary>다른 키로 매핑을 바꿀 수 있나요?</summary>
+        <div class="answer">
+          <p>현재 v0.4.0은 <span class="kbd">⌘ 0~4</span> → <span class="kbd">⌃ 2~6</span> 고정 매핑을 제공합니다. 사용자 정의 매핑은 향후 버전에서 검토 중이며, <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/issues" rel="noopener">GitHub Issues</a>에 요청 주시면 우선순위가 올라갑니다.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>한컴 외 다른 앱의 단축키에 영향을 주나요?</summary>
+        <div class="answer">
+          <p>아니요. 한글(HWP)·한셀·한쇼가 <b>활성 창</b>일 때만 키 변환이 동작합니다. Safari, Slack, Xcode 등 다른 앱에서는 <span class="kbd">⌘ 0~4</span>가 원래 기능 그대로 작동합니다.</p>
+          <p>또한 <span class="kbd">⌃⌥⌘P</span>로 전체 변환을 즉시 끄거나 켤 수 있습니다.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>로그인 시 자동 실행할 수 있나요?</summary>
+        <div class="answer">
+          <p>네. 메뉴바 아이콘 → <b>설정 → 일반</b>에서 "로그인 시 자동 실행" 옵션을 켜면 됩니다. macOS의 SMAppService API를 사용하므로 별도 권한 부여가 필요 없습니다.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>자동 업데이트는 어떻게 동작하나요? 끌 수 있나요?</summary>
+        <div class="answer">
+          <p>Sparkle 프레임워크 기반으로 24시간마다 새 릴리즈를 자동 확인합니다. 업데이트 발견 시 알림창이 뜨며, 사용자가 수락해야 설치됩니다.</p>
+          <p>자동 확인을 끄려면 메뉴바 아이콘 → <b>설정 → 일반 → 자동 업데이트 확인</b>을 토글하세요. 수동 확인은 메뉴바 아이콘 → <b>업데이트 확인</b>으로 가능합니다.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>암호 입력 시 키가 새지 않을지 걱정됩니다.</summary>
+        <div class="answer">
+          <p>안심하셔도 됩니다. 암호 입력창(은행 사이트, 1Password, macOS 잠금화면 등)이 활성화되면 macOS가 <b>Secure Input</b> 모드를 켜며, 한컴단축키는 이 모드를 감지해 <b>키 변환을 자동으로 비활성화</b>합니다.</p>
+          <p>그리고 본 앱은 키 입력 자체를 저장·전송하지 않습니다. ⌘0~4 매칭 후 즉시 ⌃2~6으로 변환·전송하고 메모리에서 폐기합니다. 코드는 <a href="https://github.com/INNO-HI-Inc/hancom-hotkey" rel="noopener">GitHub에서 공개</a>되어 있어 검증 가능합니다.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>삭제하려면 어떻게 하나요?</summary>
+        <div class="answer">
+          <p>1) 메뉴바 아이콘 → <b>종료</b><br>2) Applications 폴더에서 <b>한컴단축키.app</b>을 휴지통으로 이동<br>3) 시스템 설정 → 개인정보 보호 및 보안 → 접근성에서 항목 제거<br>4) (선택) 설정 데이터 제거: 터미널에서 <span class="kbd">defaults delete com.innohi.hancomhotkey</span></p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Intel 맥에서도 동작하나요?</summary>
+        <div class="answer">
+          <p>네. Universal binary로 빌드되어 Apple Silicon(M1/M2/M3/M4) 및 Intel 맥 모두 네이티브로 동작합니다. macOS 13 Ventura 이상이 필요합니다.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>한컴 오피스 어떤 버전에서 동작하나요?</summary>
+        <div class="answer">
+          <p>한컴오피스 Mac 버전 v12.30 이상에서 동작 확인되었습니다. 이전 버전이나 다른 버전에서도 일반적으로 동작하지만, 한컴이 향후 업데이트로 단축키 체계를 바꾸면 영향이 있을 수 있습니다. 그럴 경우 <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/issues" rel="noopener">이슈</a>를 남겨주세요.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="compat" aria-labelledby="compat-h">
+      <h2 id="compat-h">호환 <a class="anchor" href="#compat" aria-label="이 섹션 링크">#</a></h2>
       <p>macOS 13 Ventura 이상. Apple Silicon 및 Intel 맥 모두 지원 (Universal binary).</p>
       <p>한컴 오피스 버전: v12.30 이상에서 검증. 다른 버전에서도 일반적으로 동작합니다.</p>
     </section>
@@ -184,12 +308,20 @@
 
   <footer>
     <p style="margin: 0 0 8px;">© 2026 INNO-HI Inc.</p>
-    <p style="margin: 0;">
-      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey">GitHub</a> ·
-      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/issues">버그 리포트</a> ·
-      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases">릴리즈</a> ·
+    <p style="margin: 0 0 8px;">
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey" rel="noopener">GitHub</a> ·
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/issues" rel="noopener">버그 리포트</a> ·
+      <a href="changelog.html">변경 이력</a> ·
+      <a href="privacy.html">개인정보처리방침</a> ·
       <a href="mailto:board@innohi.ai.kr">지원: board@innohi.ai.kr</a>
     </p>
+    <p style="margin: 0; font-size: 12px;">한컴오피스, HWP, 한글, 한셀, 한쇼는 ㈜한글과컴퓨터의 상표이며, 본 앱은 한컴과 무관한 비공식 유틸리티입니다.</p>
   </footer>
+
+  <div class="sticky-cta">
+    <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg" class="btn btn-primary" rel="noopener">
+      ⬇︎ 무료 다운로드 (macOS 13+)
+    </a>
+  </div>
 </body>
 </html>

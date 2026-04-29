@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>변경 이력 — 한컴단축키</title>
+  <meta name="description" content="한컴단축키 버전별 변경 이력 (Changelog). 새 기능, 개선, 버그 수정 내역." />
+  <meta property="og:title" content="변경 이력 — 한컴단축키" />
+  <meta property="og:description" content="버전별 새 기능과 개선 내역" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://inno-hi-inc.github.io/hancom-hotkey/changelog.html" />
+  <meta property="og:image" content="https://inno-hi-inc.github.io/hancom-hotkey/og-image.png" />
+  <link rel="canonical" href="https://inno-hi-inc.github.io/hancom-hotkey/changelog.html" />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <style>
+    :root {
+      --bg: #f6f7fb; --text: #111827; --muted: #6b7280;
+      --accent: #3f60d6; --accent-dark: #2f4fb5;
+      --card: #ffffff; --border: #e5e7eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1115; --text: #e5e7eb; --muted: #9ca3af;
+        --accent: #7a97ef; --accent-dark: #5677e2;
+        --card: #171a21; --border: #252a34;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif; line-height: 1.7; }
+    a { color: var(--accent); }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    .nav { padding: 20px 24px; border-bottom: 1px solid var(--border); }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+    .nav a:hover { color: var(--accent); }
+    main { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+    h1 { font-size: 32px; margin: 0 0 8px; letter-spacing: -0.02em; }
+    h2 { font-size: 20px; margin: 40px 0 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+    h2:first-of-type { border-top: 0; padding-top: 0; }
+    h2 .date { font-size: 14px; color: var(--muted); font-weight: 400; margin-left: 8px; }
+    h3 { font-size: 15px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 18px 0 8px; font-weight: 600; }
+    ul { padding-left: 20px; margin: 0 0 12px; }
+    li { margin-bottom: 6px; color: var(--text); }
+    li code, p code { font-family: SF Mono, Menlo, monospace; background: var(--card); border: 1px solid var(--border); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; }
+    .latest-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 999px; margin-left: 8px; font-weight: 700; vertical-align: 1px; }
+    .lead { color: var(--muted); font-size: 14px; }
+    footer { text-align: center; padding: 32px 16px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="./">← 한컴단축키 홈</a>
+  </nav>
+  <main>
+    <h1>변경 이력</h1>
+    <p class="lead">버전 관리는 <a href="https://semver.org/lang/ko/" rel="noopener">Semantic Versioning</a>을 따릅니다.</p>
+
+    <h2>v0.4.0 <span class="latest-badge">LATEST</span><span class="date">2026-04-16</span></h2>
+    <h3>Added</h3>
+    <ul>
+      <li><b>Sparkle 자동 업데이트</b>: 24시간마다 새 버전 확인. 메뉴바·설정·정보 탭에서 수동 확인 가능.</li>
+      <li><b>한셀·한쇼 지원</b>: 한글(HWP)뿐 아니라 한셀·한쇼도 자동 감지 매핑.</li>
+      <li><b>전역 토글 단축키</b>: 어디서든 <code>⌃⌥⌘P</code>로 매핑 일시정지·재개.</li>
+      <li><b>슬립·웨이크 복구</b>: 맥 슬립에서 깨어날 때 EventTap 자동 재등록.</li>
+      <li><b>로그 내보내기</b>: 메뉴바·설정 → 문제 해결에서 최근 1시간 로그를 .txt로 저장.</li>
+      <li><b>메뉴바 드롭다운 개편</b>: 상태 헤더, "HWP 스타일 순서 바꾸기" 바로가기, 업데이트·로그 메뉴 추가.</li>
+      <li><b>랜딩 페이지</b>: 제품 소개 + 다운로드 CTA 공식 사이트 오픈.</li>
+    </ul>
+
+    <h2>v0.3.0 <span class="date">2026-04-16</span></h2>
+    <h3>Changed</h3>
+    <ul>
+      <li><b>핵심 단순화</b>: 커스텀 매핑 편집 UI 제거 (⌘0~4 → ⌃2~6 고정 매핑 유지). HWP는 스타일 이름이 아니라 <b>스타일 목록 순서</b>로 단축키를 붙이므로, 앱에서 이름·타깃키를 편집하는 건 실사용에서 혼란만 야기.</li>
+      <li>설정 → 단축키 탭을 <b>읽기 전용 매핑 표 + HWP 스타일 순서 변경 5단계 가이드</b>로 재구성.</li>
+    </ul>
+    <h3>Removed</h3>
+    <ul>
+      <li>KeyCaptureView, AddMappingSheet, HwpShortcutGuideView 등 커스텀 매핑 관련 UI 제거.</li>
+    </ul>
+
+    <h2>v0.2.3 <span class="date">2026-04-16</span></h2>
+    <h3>Fixed</h3>
+    <ul>
+      <li><b>매핑 편집·추가가 실제로 반영되지 않던 치명적 버그</b>. <code>@Published</code> sink 관찰자가 willSet 타이밍에 실행되어, UI는 새 값이지만 디스크 저장은 이전 값으로 되던 문제 수정 (didSet 기반 재작성).</li>
+    </ul>
+
+    <h2>v0.2.2 <span class="date">2026-04-16</span></h2>
+    <h3>Changed</h3>
+    <ul>
+      <li>"매핑 추가"를 인라인 삽입 대신 <b>모달 시트 + 확인 버튼</b> 방식으로 개선. 중복 매핑 검증 추가.</li>
+    </ul>
+
+    <h2>v0.2.1 <span class="date">2026-04-16</span></h2>
+    <h3>Fixed</h3>
+    <ul>
+      <li>설정 → 단축키 탭에서 매핑 편집 시 Auto Layout 무한 제약 루프로 앱이 강제 종료되던 문제 수정.</li>
+    </ul>
+
+    <h2>v0.2.0 <span class="date">2026-04-16</span></h2>
+    <h3>Added</h3>
+    <ul>
+      <li><b>커스텀 매핑 편집</b>: 매핑 이름 인라인 편집, 입력/HWP 단축키 키 캡처, 매핑 추가/삭제. (v0.3.0에서 제거됨)</li>
+    </ul>
+
+    <h2>v0.1.0 <span class="date">2026-04-16</span></h2>
+    <h3>Added</h3>
+    <ul>
+      <li>HWP 활성 시 <code>⌘0~4</code> → <code>⌃2~6</code> 자동 리매핑.</li>
+      <li>메뉴바 상주 유틸리티 (NSStatusItem, LSUIElement).</li>
+      <li>접근성 권한 온보딩 화면, 설정 윈도우 3탭(일반/단축키/정보).</li>
+      <li>로그인 시 자동 실행, Secure Input 자동 비활성, EventTap 자동 재활성.</li>
+      <li>macOS 13+ Universal binary, Developer ID 서명 + 공증, DMG 배포.</li>
+    </ul>
+  </main>
+  <footer>
+    <p>© 2026 INNO-HI Inc. · <a href="./">홈</a> · <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases" rel="noopener">GitHub Releases</a></p>
+  </footer>
+</body>
+</html>

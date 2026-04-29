@@ -179,6 +179,7 @@
         </div>
       </div>
       <p style="text-align:center; color: var(--muted); font-size: 14px; margin-top: 8px;">한글(HWP)·한셀·한쇼가 활성일 때만 변환. 다른 앱에서는 원래 단축키 그대로.</p>
+      <p style="text-align:center; color: var(--muted); font-size: 13px; margin-top: 4px;">※ HWP 스타일 목록의 <b>2~6번째 자리</b>에 스타일이 있어야 동작합니다 → <a href="#hwp-setup">아래 5단계 가이드</a></p>
     </section>
 
     <section id="features" aria-labelledby="features-h">
@@ -210,6 +211,21 @@
       <p style="font-size: 13px; color: var(--muted);">※ "예시 스타일명"은 한컴 오피스 기본 템플릿 기준입니다. 한컴은 <b>스타일 이름이 아니라 목록 순서</b>로 단축키를 붙이므로, 원하는 스타일을 ⌘0~4에 배치하려면 HWP <b>서식 → 스타일</b>에서 목록 순서를 조정하세요. 앱 설정의 단축키 탭에 5단계 가이드가 있습니다.</p>
     </section>
 
+    <section id="hwp-setup" aria-labelledby="hwp-setup-h">
+      <h2 id="hwp-setup-h">⌘0~4가 안 먹는다면 — HWP 스타일 5단계 설정 <a class="anchor" href="#hwp-setup" aria-label="이 섹션 링크">#</a></h2>
+      <div class="card" style="margin-bottom: 16px; background: linear-gradient(180deg, rgba(63,96,214,0.06), transparent);">
+        <p style="margin: 0 0 16px; color: var(--text);">한컴 Mac판은 <b>스타일 목록 순서</b>에 따라 자동으로 단축키를 부여합니다. 1번째 = <span class="kbd">⌃ 1</span>(바탕글), 2번째 = <span class="kbd">⌃ 2</span>, … 본 앱은 <span class="kbd">⌘ 0~4</span>를 <span class="kbd">⌃ 2~6</span>으로 바꿔 보내므로, <b>2~6번째 자리에 원하는 스타일이 있어야</b> 동작합니다.</p>
+        <ol class="steps" style="margin: 0;">
+          <li><b>스타일 창 열기</b> — HWP 상단 메뉴: 서식 → 스타일… (또는 <span class="kbd">F6</span>, Touch Bar 맥북은 <span class="kbd">fn + F6</span>)</li>
+          <li><b>옮길 스타일 선택</b> — 목록에서 자주 쓰는 스타일을 한 번 클릭</li>
+          <li><b>위 / 아래 버튼으로 이동</b> — 목록 우측의 ▲▼ 버튼 또는 드래그</li>
+          <li><b>2~6번째 자리에 배치</b> — <span class="kbd">⌘ 0</span>은 2번째, <span class="kbd">⌘ 1</span>은 3번째, …, <span class="kbd">⌘ 4</span>는 6번째</li>
+          <li><b>완료</b> — 창 닫으면 자동 저장. HWP에서 <span class="kbd">⌘ 0~4</span> 눌러 확인</li>
+        </ol>
+      </div>
+      <p style="font-size: 13px; color: var(--muted);">예: "본문 가."를 <span class="kbd">⌘ 0</span>으로 쓰고 싶다면, 스타일 목록의 <b>2번째 자리</b>로 옮기세요. 앱 설정 → 단축키 탭에도 동일한 가이드가 있습니다.</p>
+    </section>
+
     <section id="install" aria-labelledby="install-h">
       <h2 id="install-h">설치 <a class="anchor" href="#install" aria-label="이 섹션 링크">#</a></h2>
       <ol class="steps">
@@ -238,6 +254,21 @@
 
     <section id="faq" aria-labelledby="faq-h">
       <h2 id="faq-h">자주 묻는 질문 <a class="anchor" href="#faq" aria-label="이 섹션 링크">#</a></h2>
+
+      <details class="faq" open>
+        <summary>⌘0~4를 눌러도 아무 일도 일어나지 않아요</summary>
+        <div class="answer">
+          <p>가장 흔한 원인은 <b>HWP 스타일 목록의 2~6번째 자리가 비어있거나, 시각적 변화가 없는 자동 생성 스타일</b>이라서 그렇습니다.</p>
+          <p>한컴 Mac은 스타일 목록 순서대로 <span class="kbd">⌃ 1</span> ~ <span class="kbd">⌃ 0</span>을 자동 할당합니다. 본 앱은 <span class="kbd">⌘ 0~4</span>를 <span class="kbd">⌃ 2~6</span>으로 변환만 해주므로, 그 자리에 의미있는 스타일이 없으면 결과는 동일하게 무반응입니다.</p>
+          <p>해결: <a href="#hwp-setup">위의 5단계 가이드</a>에 따라 자주 쓰는 스타일을 2~6번째 자리로 옮겨주세요.</p>
+          <p>그 외에도 다음을 확인해 보세요:</p>
+          <ul style="padding-left: 20px; margin: 8px 0 0;">
+            <li>메뉴바 아이콘 상태가 <b>● 활성</b>인가? (⏸ 일시정지 또는 ⚠︎ 권한 필요면 비활성)</li>
+            <li>접근성 권한이 켜져 있는가? (시스템 설정 → 개인정보 보호 및 보안 → 접근성)</li>
+            <li>현재 활성 창이 정말 한글·한셀·한쇼인가?</li>
+          </ul>
+        </div>
+      </details>
 
       <details class="faq">
         <summary>다른 키로 매핑을 바꿀 수 있나요?</summary>

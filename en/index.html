@@ -167,6 +167,7 @@
         </div>
       </div>
       <p style="text-align:center; color: var(--muted); font-size: 14px; margin-top: 8px;">Active only when HWP / Hancell / Hanshow is the frontmost app. Other apps are unaffected.</p>
+      <p style="text-align:center; color: var(--muted); font-size: 13px; margin-top: 4px;">Note: requires styles in <b>slots 2–6</b> of the HWP style list → <a href="#hwp-setup">5-step guide below</a></p>
     </section>
 
     <section>
@@ -203,6 +204,21 @@
       <p style="font-size: 13px; color: var(--muted);">Note: Hancom binds shortcuts by <b>style list position</b>, not style name. Reorder styles in HWP via <b>Format → Styles</b> to match your preference. The app's Shortcuts tab includes a 5-step guide.</p>
     </section>
 
+    <section id="hwp-setup">
+      <h2>If ⌘0–4 do nothing — 5-step HWP style setup</h2>
+      <div class="card" style="margin-bottom: 16px; background: linear-gradient(180deg, rgba(63,96,214,0.06), transparent);">
+        <p style="margin: 0 0 16px; color: var(--text);">Hancom Mac auto-binds shortcuts by <b>style list position</b>: 1st = <span class="kbd">⌃ 1</span> (Body), 2nd = <span class="kbd">⌃ 2</span>, etc. This app translates <span class="kbd">⌘ 0–4</span> to <span class="kbd">⌃ 2–6</span>, so <b>you need meaningful styles in slots 2–6</b> for anything to happen.</p>
+        <ol class="steps" style="margin: 0;">
+          <li><b>Open the Styles panel</b> — HWP menu: Format → Styles… (or <span class="kbd">F6</span>; on Touch Bar Macs use <span class="kbd">fn + F6</span>)</li>
+          <li><b>Select the style to move</b> — click the style you use often</li>
+          <li><b>Move with arrow buttons</b> — use the ▲▼ buttons on the right, or drag</li>
+          <li><b>Place in slots 2–6</b> — <span class="kbd">⌘ 0</span> = slot 2, <span class="kbd">⌘ 1</span> = slot 3, …, <span class="kbd">⌘ 4</span> = slot 6</li>
+          <li><b>Done</b> — closing the panel auto-saves. Try <span class="kbd">⌘ 0–4</span> in HWP to confirm</li>
+        </ol>
+      </div>
+      <p style="font-size: 13px; color: var(--muted);">The same guide is also available in the app's Settings → Shortcuts tab.</p>
+    </section>
+
     <section>
       <h2>Install</h2>
       <ol class="steps">
@@ -231,6 +247,21 @@
 
     <section>
       <h2>FAQ</h2>
+
+      <details class="faq" open>
+        <summary>I press ⌘0–4 but nothing happens</summary>
+        <div class="answer">
+          <p>The most common cause: <b>HWP style list slots 2–6 are empty or contain auto-generated styles with no visual change</b>.</p>
+          <p>Hancom Mac auto-binds <span class="kbd">⌃ 1</span>–<span class="kbd">⌃ 0</span> by style list position. This app only translates <span class="kbd">⌘ 0–4</span> to <span class="kbd">⌃ 2–6</span> — if those slots have no meaningful style, nothing changes.</p>
+          <p>Fix: follow the <a href="#hwp-setup">5-step setup above</a> to move your favorite styles into slots 2–6.</p>
+          <p>Other things to verify:</p>
+          <ul style="padding-left: 20px; margin: 8px 0 0;">
+            <li>Menu bar status reads <b>● Active</b> (not paused or "permission needed")</li>
+            <li>Accessibility permission is granted (System Settings → Privacy &amp; Security → Accessibility)</li>
+            <li>The frontmost window really is HWP / Hancell / Hanshow</li>
+          </ul>
+        </div>
+      </details>
 
       <details class="faq">
         <summary>Can I customize the key bindings?</summary>

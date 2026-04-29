@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HancomHotkey — Native ⌘ shortcuts for Hancom Office on Mac</title>
+  <meta name="description" content="A menu-bar utility that remaps Hancom Office (HWP, Hancell, Hanshow) Ctrl-based style shortcuts to natural Cmd shortcuts on macOS. Free, signed and notarized." />
+  <meta name="keywords" content="Hancom, HWP, Hancell, Hanshow, macOS, key remapper, menu bar app, Korean office" />
+  <meta property="og:title" content="HancomHotkey" />
+  <meta property="og:description" content="Native ⌘ shortcuts for Hancom Office on Mac" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://inno-hi-inc.github.io/hancom-hotkey/en/" />
+  <meta property="og:image" content="https://inno-hi-inc.github.io/hancom-hotkey/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HancomHotkey" />
+  <meta name="twitter:description" content="Native ⌘ shortcuts for Hancom Office on Mac" />
+  <meta name="twitter:image" content="https://inno-hi-inc.github.io/hancom-hotkey/og-image.png" />
+  <link rel="canonical" href="https://inno-hi-inc.github.io/hancom-hotkey/en/" />
+  <link rel="alternate" hreflang="ko" href="https://inno-hi-inc.github.io/hancom-hotkey/" />
+  <link rel="alternate" hreflang="en" href="https://inno-hi-inc.github.io/hancom-hotkey/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://inno-hi-inc.github.io/hancom-hotkey/" />
+  <link rel="icon" type="image/png" href="../icon.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HancomHotkey",
+    "description": "A menu-bar utility that remaps Hancom Office Ctrl-based style shortcuts to native ⌘ shortcuts on macOS",
+    "url": "https://inno-hi-inc.github.io/hancom-hotkey/en/",
+    "image": "https://inno-hi-inc.github.io/hancom-hotkey/og-image.png",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "macOS 13.0 or later",
+    "softwareVersion": "0.4.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "downloadUrl": "https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg",
+    "author": {
+      "@type": "Organization",
+      "name": "INNO-HI Inc.",
+      "url": "https://innohi.ai.kr"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #f6f7fb; --text: #111827; --muted: #6b7280;
+      --accent: #3f60d6; --accent-dark: #2f4fb5;
+      --card: #ffffff; --border: #e5e7eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1115; --text: #e5e7eb; --muted: #9ca3af;
+        --accent: #7a97ef; --accent-dark: #5677e2;
+        --card: #171a21; --border: #252a34;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; line-height: 1.6; scroll-behavior: smooth; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; padding: 10px 16px; background: var(--accent); color: #fff; font-weight: 600; z-index: 1000; border-radius: 0 0 8px 0; }
+    .skip-link:focus { left: 0; }
+    .lang-switch { position: absolute; top: 16px; right: 20px; font-size: 13px; color: var(--muted); }
+    .lang-switch a { color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; }
+    .lang-switch a[aria-current="page"] { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    header.hero { padding: 72px 24px 48px; text-align: center; position: relative; }
+    .icon-large { width: 120px; height: 120px; border-radius: 28px; box-shadow: 0 10px 30px rgba(63, 96, 214, 0.25); }
+    @media (prefers-color-scheme: dark) {
+      .icon-large { box-shadow: 0 10px 30px rgba(122, 151, 239, 0.18); }
+    }
+    h1 { font-size: 40px; margin: 20px 0 8px; letter-spacing: -0.02em; }
+    .tagline { font-size: 18px; color: var(--muted); margin: 0 0 32px; }
+    .cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: transform 0.05s ease, background 0.15s ease; font-size: 16px; }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    main { max-width: 900px; margin: 0 auto; padding: 16px 24px 64px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 32px 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-size: 17px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    section { margin: 48px 0; }
+    h2 { font-size: 24px; margin: 0 0 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .kbd { font-family: SF Mono, Menlo, monospace; background: var(--bg); padding: 2px 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 13px; white-space: nowrap; }
+    ol.steps { padding-left: 24px; }
+    ol.steps li { margin-bottom: 8px; }
+    footer { text-align: center; padding: 40px 16px 100px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+    footer a { color: var(--muted); }
+    .meta { font-size: 13px; color: var(--muted); margin-top: 14px; }
+    .demo { display: flex; gap: 18px; align-items: center; justify-content: center; flex-wrap: wrap; margin: 20px 0 8px; }
+    .demo-side { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 26px; min-width: 260px; }
+    .demo-side .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .demo-side .keys { display: flex; gap: 6px; align-items: center; font-family: SF Mono, Menlo, monospace; font-size: 18px; font-weight: 600; }
+    .demo-side .keycap { background: var(--bg); border: 1px solid var(--border); border-bottom-width: 2px; padding: 8px 14px; border-radius: 8px; min-width: 28px; text-align: center; }
+    .demo-side .result { margin-top: 10px; font-size: 13px; color: var(--muted); }
+    .demo-arrow { font-size: 24px; color: var(--accent); font-weight: 700; }
+    .demo-side.before { opacity: 0.7; }
+    .demo-side.after { border-color: var(--accent); }
+    @media (max-width: 520px) { .demo-arrow { transform: rotate(90deg); } }
+    details.faq { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+    details.faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq summary::after { content: "+"; color: var(--muted); font-size: 22px; line-height: 1; transition: transform 0.2s; }
+    details.faq[open] summary::after { transform: rotate(45deg); }
+    details.faq[open] { border-color: var(--accent); }
+    details.faq .answer { margin-top: 12px; color: var(--muted); font-size: 14px; }
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); border-top: 1px solid var(--border); padding: 12px 16px; display: none; z-index: 100; box-shadow: 0 -4px 12px rgba(0,0,0,0.08); }
+    .sticky-cta a { width: 100%; justify-content: center; }
+    @media (max-width: 640px) {
+      .sticky-cta { display: block; }
+      footer { padding-bottom: 100px; }
+      h1 { font-size: 32px; }
+      header.hero { padding: 56px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="hero">
+    <div class="lang-switch">
+      <a href="/hancom-hotkey/">KO</a>
+      <a href="/hancom-hotkey/en/" aria-current="page">EN</a>
+    </div>
+    <img src="../icon.png" alt="HancomHotkey app icon" class="icon-large" />
+    <h1>HancomHotkey</h1>
+    <p class="tagline">Native <b>⌘0–4</b> shortcuts for Hancom Office on Mac.</p>
+    <div class="cta">
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg" class="btn btn-primary" rel="noopener">
+        ⬇︎ Free download (macOS 13+)
+      </a>
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases" class="btn btn-secondary" rel="noopener">
+        Releases
+      </a>
+    </div>
+    <p class="meta">By INNO-HI Inc. · Universal (Apple Silicon + Intel) · Apple Developer ID signed &amp; notarized</p>
+  </header>
+
+  <main id="main">
+    <section>
+      <h2>The problem</h2>
+      <div class="demo">
+        <div class="demo-side before">
+          <div class="label">⚠︎ Hancom default on Mac</div>
+          <div class="keys">
+            <span class="keycap">⌃</span><span aria-hidden="true">+</span><span class="keycap">2</span>
+          </div>
+          <div class="result">Awkward Ctrl-based combo</div>
+        </div>
+        <div class="demo-arrow" aria-hidden="true">→</div>
+        <div class="demo-side after">
+          <div class="label">✓ With HancomHotkey</div>
+          <div class="keys">
+            <span class="keycap">⌘</span><span aria-hidden="true">+</span><span class="keycap">0</span>
+          </div>
+          <div class="result">Natural Cmd combo</div>
+        </div>
+      </div>
+      <p style="text-align:center; color: var(--muted); font-size: 14px; margin-top: 8px;">Active only when HWP / Hancell / Hanshow is the frontmost app. Other apps are unaffected.</p>
+    </section>
+
+    <section>
+      <h2>What is Hancom Office?</h2>
+      <p style="color: var(--muted); font-size: 15px;">Hancom Office (HWP / Hancell / Hanshow) is the de-facto Korean office suite, used by virtually every Korean government agency, university, and large enterprise. The Mac version uses Ctrl-based shortcuts that feel unnatural on macOS — HancomHotkey fixes that.</p>
+    </section>
+
+    <section>
+      <h2>Features</h2>
+      <div class="grid">
+        <div class="card"><h3>▲ Native Swift</h3><p>No Hammerspoon required. Lives quietly in the menu bar with minimal CPU/memory footprint.</p></div>
+        <div class="card"><h3>▲ All three Hancom apps</h3><p>Auto-detects HWP, Hancell, and Hanshow.</p></div>
+        <div class="card"><h3>▲ Global toggle</h3><p>Hit <span class="kbd">⌃⌥⌘P</span> anywhere to pause or resume remapping.</p></div>
+        <div class="card"><h3>▲ Safe by design</h3><p>Auto-disables in Secure Input fields (passwords). Never remaps when Hancom is inactive.</p></div>
+        <div class="card"><h3>▲ Auto-update</h3><p>Sparkle-powered. Bug fixes and improvements delivered automatically.</p></div>
+        <div class="card"><h3>▲ Notarized</h3><p>Apple Developer ID signed and notarized — no Gatekeeper warnings.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Default mapping</h2>
+      <table>
+        <thead>
+          <tr><th scope="col">You press</th><th scope="col">Sent to Hancom</th><th scope="col">Style slot</th><th scope="col">Example style</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="kbd">⌘ 0</span></td><td><span class="kbd">⌃ 2</span></td><td>2nd</td><td>Body</td></tr>
+          <tr><td><span class="kbd">⌘ 1</span></td><td><span class="kbd">⌃ 3</span></td><td>3rd</td><td>Heading 1</td></tr>
+          <tr><td><span class="kbd">⌘ 2</span></td><td><span class="kbd">⌃ 4</span></td><td>4th</td><td>Heading 2</td></tr>
+          <tr><td><span class="kbd">⌘ 3</span></td><td><span class="kbd">⌃ 5</span></td><td>5th</td><td>Heading 3</td></tr>
+          <tr><td><span class="kbd">⌘ 4</span></td><td><span class="kbd">⌃ 6</span></td><td>6th</td><td>Quote, etc.</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 13px; color: var(--muted);">Note: Hancom binds shortcuts by <b>style list position</b>, not style name. Reorder styles in HWP via <b>Format → Styles</b> to match your preference. The app's Shortcuts tab includes a 5-step guide.</p>
+    </section>
+
+    <section>
+      <h2>Install</h2>
+      <ol class="steps">
+        <li>Click the <b>Free download</b> button above</li>
+        <li>Open the DMG, drag <b>HancomHotkey.app</b> to <b>Applications</b></li>
+        <li>Launch from Launchpad</li>
+        <li>Grant <b>Accessibility permission</b> on first run (see below)</li>
+        <li>In Hancom Office, hit <span class="kbd">⌘ 0–4</span> to verify</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Why does it need Accessibility permission?</h2>
+      <div class="card" style="margin-bottom: 16px;">
+        <h3 style="margin-bottom: 12px;">▲ Key remapping requires macOS Accessibility permission</h3>
+        <p style="color: var(--text); margin-bottom: 12px;">Detecting <span class="kbd">⌘ 0</span> and substituting <span class="kbd">⌃ 2</span> is technically "key hooking" on macOS, which requires Accessibility privileges.</p>
+        <ul style="color: var(--muted); padding-left: 22px; margin: 0; line-height: 1.8;">
+          <li>Only intercepts keys when HWP / Hancell / Hanshow is frontmost</li>
+          <li>Auto-disables in Secure Input contexts (passwords, lock screens)</li>
+          <li>No keystrokes are logged, stored, or transmitted</li>
+          <li>Open source + Apple Developer ID signed + notarized</li>
+        </ul>
+      </div>
+      <p style="font-size: 14px; color: var(--muted);"><b>Path:</b> System Settings → Privacy &amp; Security → Accessibility → toggle on <b>HancomHotkey</b>. The first-run wizard opens this for you.</p>
+    </section>
+
+    <section>
+      <h2>FAQ</h2>
+
+      <details class="faq">
+        <summary>Can I customize the key bindings?</summary>
+        <div class="answer"><p>v0.4.0 ships with a fixed mapping (<span class="kbd">⌘ 0–4</span> → <span class="kbd">⌃ 2–6</span>). Custom mappings are under consideration — please file a request on <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/issues" rel="noopener">GitHub Issues</a>.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary>Does it interfere with other apps' shortcuts?</summary>
+        <div class="answer"><p>No. Remapping only fires when an HWP / Hancell / Hanshow window is frontmost. In Safari, Slack, Xcode, etc., <span class="kbd">⌘ 0–4</span> behaves normally. You can also pause everything with <span class="kbd">⌃⌥⌘P</span>.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary>Can it launch at login?</summary>
+        <div class="answer"><p>Yes. Menu bar → Settings → General → enable "Launch at login". Uses macOS SMAppService, no extra permission needed.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary>Are my keystrokes safe? What about passwords?</summary>
+        <div class="answer"><p>Yes. macOS triggers Secure Input mode in password fields (banking, 1Password, lock screen, etc.), and HancomHotkey detects this and <b>auto-disables remapping</b>.</p><p>The app never logs or transmits keystrokes — it intercepts ⌘0–4, sends ⌃2–6 instead, and discards from memory. The full source is on <a href="https://github.com/INNO-HI-Inc/hancom-hotkey" rel="noopener">GitHub</a> for verification.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary>How do I uninstall?</summary>
+        <div class="answer"><p>1) Menu bar → Quit · 2) Drag HancomHotkey.app to Trash · 3) Remove from System Settings → Accessibility · 4) Optional preference cleanup: <span class="kbd">defaults delete com.innohi.hancomhotkey</span></p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2>Compatibility</h2>
+      <p>macOS 13 Ventura or later. Universal binary — runs natively on both Apple Silicon and Intel Macs.</p>
+      <p>Verified on Hancom Office Mac v12.30 and later. Generally works on other versions.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p style="margin: 0 0 8px;">© 2026 INNO-HI Inc.</p>
+    <p style="margin: 0 0 8px;">
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey" rel="noopener">GitHub</a> ·
+      <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/issues" rel="noopener">Bug reports</a> ·
+      <a href="../changelog.html">Changelog</a> ·
+      <a href="../privacy.html">Privacy</a> ·
+      <a href="mailto:board@innohi.ai.kr">Support: board@innohi.ai.kr</a>
+    </p>
+    <p style="margin: 0; font-size: 12px;">Hancom Office, HWP, Hancell, and Hanshow are trademarks of Hancom Inc. This app is an unofficial, independent utility not affiliated with Hancom.</p>
+  </footer>
+
+  <div class="sticky-cta">
+    <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg" class="btn btn-primary" rel="noopener">
+      ⬇︎ Free download (macOS 13+)
+    </a>
+  </div>
+</body>
+</html>

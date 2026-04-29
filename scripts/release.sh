@@ -151,11 +151,17 @@ python3 scripts/update_appcast.py \
   --signature "$SPARKLE_SIG" \
   --length "$SPARKLE_LEN"
 
+log "15) Mirror DMG as -latest.dmg (stable URL for landing page)"
+DMG_LATEST="dist/${APP_NAME}-latest.dmg"
+cp "$DMG_OUT" "$DMG_LATEST"
+
 echo
 echo "✅ Release ready: $DMG_OUT"
-ls -lh "$DMG_OUT"
+ls -lh "$DMG_OUT" "$DMG_LATEST"
 echo
 echo "Next:"
-echo "  1. Create GitHub release tag v${VERSION}, upload $DMG_OUT"
+echo "  1. Create GitHub release tag v${VERSION}, upload BOTH:"
+echo "       - $DMG_OUT"
+echo "       - $DMG_LATEST   (powers https://.../releases/latest/download/${APP_NAME}-latest.dmg)"
 echo "  2. Commit and push ${APPCAST_FILE} to the gh-pages branch (or publish directory)"
 echo "  3. Users on prior versions will auto-discover the update within 24 h"

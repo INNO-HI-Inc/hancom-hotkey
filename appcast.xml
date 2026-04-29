@@ -13,5 +13,13 @@
       <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
       <enclosure url="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/download/v0.4.0/HancomHotkey-0.4.0.dmg" length="1295299" type="application/octet-stream" sparkle:edSignature="HPD4kutI80cjpZsHeGfoxDTU9kg6WFEhKncoXpxE0l3LBbJB/R/JAUDmJxm582rPx62bWsPVlhJxVA1o6P0XDw==" />
     </item>
+    <item>
+      <title>버전 0.5.0</title>
+      <pubDate>Wed, 29 Apr 2026 06:23:17 +0000</pubDate>
+      <sparkle:version>202604291523</sparkle:version>
+      <sparkle:shortVersionString>0.5.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/download/v0.5.0/HancomHotkey-0.5.0.dmg" length="1295457" type="application/octet-stream" sparkle:edSignature="9hg43uEIrYwhrmTQIiZUAP587zdbpvsWv0cj5XMloWEqCBAOdl/TlnKN0S5FWaCkcTg6xV7QQwS7o7P/M8GuDw==" />
+    </item>
   </channel>
 </rss>

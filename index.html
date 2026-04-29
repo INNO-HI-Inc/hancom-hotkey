@@ -256,6 +256,18 @@
       <h2 id="faq-h">자주 묻는 질문 <a class="anchor" href="#faq" aria-label="이 섹션 링크">#</a></h2>
 
       <details class="faq" open>
+        <summary>한 번 누르면 정렬만 바뀌고, 두 번 눌러야 글씨체까지 바뀌어요</summary>
+        <div class="answer">
+          <p>한컴 HWP의 <b>의도된 동작</b>이며 본 앱과 무관합니다. 한컴 공식 문서 그대로:</p>
+          <ul style="padding-left: 20px; margin: 8px 0;">
+            <li><b>첫 번째 적용</b>: 새로운 스타일 내용대로 바꾸되, 사용자가 별도로 바꾼 글자 모양·문단 모양은 보호해 그대로 둡니다.</li>
+            <li><b>두 번째 적용</b>: "본문을 스타일 모양대로 덮어쓸까요?" 메시지가 뜨거나 자동으로 덮어쓰기 → 사용자가 직접 바꾼 글자 모양까지 모두 스타일 정의로 초기화.</li>
+          </ul>
+          <p>즉, 그 문단의 글씨체를 미리 수동으로 바꿔놨던 경우 두 번 눌러야 글씨체까지 바뀝니다. 회피하려면 적용 전에 <span class="kbd">⌃ 1</span>(바탕글)로 한 번 초기화하거나, 새 문단에 처음부터 적용하세요. 출처: <a href="https://help.hancom.com/hoffice/multi/ko_kr/hwp/format/style/style(apply).htm" rel="noopener">한컴 공식 — 스타일 적용하기</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq">
         <summary>⌘0~4를 눌러도 아무 일도 일어나지 않아요</summary>
         <div class="answer">
           <p>가장 흔한 원인은 <b>HWP 스타일 목록의 2~6번째 자리가 비어있거나, 시각적 변화가 없는 자동 생성 스타일</b>이라서 그렇습니다.</p>

@@ -249,6 +249,18 @@
       <h2>FAQ</h2>
 
       <details class="faq" open>
+        <summary>First press only changes alignment; I have to press twice for the font to change</summary>
+        <div class="answer">
+          <p>This is <b>HWP's intended behavior</b>, not a bug in this app. Per Hancom's official documentation:</p>
+          <ul style="padding-left: 20px; margin: 8px 0;">
+            <li><b>First application</b>: applies the new style but <b>preserves any character/paragraph formatting you manually changed</b>.</li>
+            <li><b>Second application of the same style</b>: HWP shows "Overwrite with style?" or auto-overrides — your manual edits get reset to the style definition.</li>
+          </ul>
+          <p>So if you previously hand-edited the font on that paragraph, you need two presses to fully apply the style. Workaround: hit <span class="kbd">⌃ 1</span> (Body) to reset first, or apply to a fresh paragraph. Source: <a href="https://help.hancom.com/hoffice/multi/ko_kr/hwp/format/style/style(apply).htm" rel="noopener">Hancom official docs — Applying styles</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq">
         <summary>I press ⌘0–4 but nothing happens</summary>
         <div class="answer">
           <p>The most common cause: <b>HWP style list slots 2–6 are empty or contain auto-generated styles with no visual change</b>.</p>

@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HancomHotkey — Native ⌘ shortcuts for Hancom Office on Mac</title>
-  <meta name="description" content="A menu-bar utility that remaps Hancom Office (HWP, Hancell, Hanshow) Ctrl-based style shortcuts to natural Cmd shortcuts on macOS. Free, signed and notarized." />
+  <title>HancomHotkey — 0-indexed ⌃ style shortcuts for Hancom Office on Mac</title>
+  <meta name="description" content="A menu-bar utility that adds ⌃0–4 style shortcuts to Hancom Office (HWP, Hancell, Hanshow) on macOS. Free, signed and notarized." />
   <meta name="keywords" content="Hancom, HWP, Hancell, Hanshow, macOS, key remapper, menu bar app, Korean office" />
   <meta property="og:title" content="HancomHotkey" />
-  <meta property="og:description" content="Native ⌘ shortcuts for Hancom Office on Mac" />
+  <meta property="og:description" content="0-indexed ⌃ style shortcuts for Hancom Office on Mac" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://inno-hi-inc.github.io/hancom-hotkey/en/" />
@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="HancomHotkey" />
-  <meta name="twitter:description" content="Native ⌘ shortcuts for Hancom Office on Mac" />
+  <meta name="twitter:description" content="0-indexed ⌃ style shortcuts for Hancom Office on Mac" />
   <meta name="twitter:image" content="https://inno-hi-inc.github.io/hancom-hotkey/og-image.png" />
   <link rel="canonical" href="https://inno-hi-inc.github.io/hancom-hotkey/en/" />
   <link rel="alternate" hreflang="ko" href="https://inno-hi-inc.github.io/hancom-hotkey/" />
@@ -28,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "HancomHotkey",
-    "description": "A menu-bar utility that remaps Hancom Office Ctrl-based style shortcuts to native ⌘ shortcuts on macOS",
+    "description": "A menu-bar utility that adds 0-indexed ⌃0–4 style shortcuts to Hancom Office on macOS",
     "url": "https://inno-hi-inc.github.io/hancom-hotkey/en/",
     "image": "https://inno-hi-inc.github.io/hancom-hotkey/og-image.png",
     "applicationCategory": "UtilitiesApplication",
@@ -62,7 +62,7 @@
       }
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; line-height: 1.6; scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; line-height: 1.7; scroll-behavior: smooth; font-size: 17px; }
     a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
     .skip-link { position: absolute; left: -9999px; top: 0; padding: 10px 16px; background: var(--accent); color: #fff; font-weight: 600; z-index: 1000; border-radius: 0 0 8px 0; }
     .skip-link:focus { left: 0; }
@@ -134,7 +134,7 @@
     </div>
     <img src="../icon.png" alt="HancomHotkey app icon" class="icon-large" />
     <h1>HancomHotkey</h1>
-    <p class="tagline">Hancom Office on Mac ships <b>without working style shortcuts</b>. We add <b>⌘0–4</b>.</p>
+    <p class="tagline">Hancom Office on Mac ships <b>without working style shortcuts</b>. We add <b>⌃0–4</b>.</p>
     <div class="cta">
       <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg" class="btn btn-primary" rel="noopener">
         ⬇︎ Free download (macOS 13+)
@@ -152,16 +152,16 @@
       <div class="demo">
         <div class="demo-side before">
           <div class="label">⚠︎ Hancom default on Mac</div>
-          <div class="keys" style="font-size: 14px; font-family: -apple-system, sans-serif; font-weight: 600; color: var(--muted);">No working shortcut</div>
-          <div class="result">Menu / mouse only out of the box.<br>(⌃+digit needs manual slot setup first)</div>
+          <div class="keys" style="font-size: 13px; font-family: -apple-system, sans-serif; font-weight: 600; color: var(--muted);">No shortcut</div>
+          <div class="result">Menu / mouse only</div>
         </div>
         <div class="demo-arrow" aria-hidden="true">→</div>
         <div class="demo-side after">
           <div class="label">✓ With HancomHotkey</div>
           <div class="keys">
-            <span class="keycap">⌘</span><span aria-hidden="true">+</span><span class="keycap">0</span>
+            <span class="keycap">⌃</span><span aria-hidden="true">+</span><span class="keycap">0</span>
           </div>
-          <div class="result">One press — style applied instantly</div>
+          <div class="result">One press — instant apply</div>
         </div>
       </div>
       <p style="text-align:center; color: var(--muted); font-size: 14px; margin-top: 8px;">Active only when HWP / Hancell / Hanshow is the frontmost app. Other apps are unaffected.</p>
@@ -192,26 +192,26 @@
           <tr><th scope="col">You press</th><th scope="col">Sent to Hancom</th><th scope="col">Style slot</th><th scope="col">Example style</th></tr>
         </thead>
         <tbody>
-          <tr><td><span class="kbd">⌘ 0</span></td><td><span class="kbd">⌃ 1</span></td><td>1st</td><td>Body (default)</td></tr>
-          <tr><td><span class="kbd">⌘ 1</span></td><td><span class="kbd">⌃ 2</span></td><td>2nd</td><td>Body 2</td></tr>
-          <tr><td><span class="kbd">⌘ 2</span></td><td><span class="kbd">⌃ 3</span></td><td>3rd</td><td>Heading 1</td></tr>
-          <tr><td><span class="kbd">⌘ 3</span></td><td><span class="kbd">⌃ 4</span></td><td>4th</td><td>Heading 2</td></tr>
-          <tr><td><span class="kbd">⌘ 4</span></td><td><span class="kbd">⌃ 5</span></td><td>5th</td><td>Heading 3</td></tr>
+          <tr><td><span class="kbd">⌃ 0</span></td><td><span class="kbd">⌃ 1</span></td><td>1st</td><td>Body (default)</td></tr>
+          <tr><td><span class="kbd">⌃ 1</span></td><td><span class="kbd">⌃ 2</span></td><td>2nd</td><td>Body 2</td></tr>
+          <tr><td><span class="kbd">⌃ 2</span></td><td><span class="kbd">⌃ 3</span></td><td>3rd</td><td>Heading 1</td></tr>
+          <tr><td><span class="kbd">⌃ 3</span></td><td><span class="kbd">⌃ 4</span></td><td>4th</td><td>Heading 2</td></tr>
+          <tr><td><span class="kbd">⌃ 4</span></td><td><span class="kbd">⌃ 5</span></td><td>5th</td><td>Heading 3</td></tr>
         </tbody>
       </table>
       <p style="font-size: 13px; color: var(--muted);">Note: Hancom binds shortcuts by <b>style list position</b>, not style name. Reorder styles in HWP via <b>Format → Styles</b> to match your preference. The app's Shortcuts tab includes a 5-step guide.</p>
     </section>
 
     <section id="hwp-setup">
-      <h2>If ⌘0–4 do nothing — 5-step HWP style setup</h2>
+      <h2>If ⌃0–4 do nothing — 5-step HWP style setup</h2>
       <div class="card" style="margin-bottom: 16px; background: linear-gradient(180deg, rgba(63,96,214,0.06), transparent);">
-        <p style="margin: 0 0 16px; color: var(--text);">Hancom Mac auto-binds shortcuts by <b>style list position</b>: 1st = <span class="kbd">⌃ 1</span> (Body), 2nd = <span class="kbd">⌃ 2</span>, etc. This app translates <span class="kbd">⌘ 0–4</span> to <span class="kbd">⌃ 1–5</span>, so <b>you need meaningful styles in slots 1–5</b> for anything to happen.</p>
+        <p style="margin: 0 0 16px; color: var(--text);">Hancom Mac auto-binds shortcuts by <b>style list position</b>: 1st = <span class="kbd">⌃ 1</span> (Body), 2nd = <span class="kbd">⌃ 2</span>, etc. This app translates <span class="kbd">⌃ 0–4</span> to <span class="kbd">⌃ 1–5</span>, so <b>you need meaningful styles in slots 1–5</b> for anything to happen.</p>
         <ol class="steps" style="margin: 0;">
           <li><b>Open the Styles panel</b> — HWP menu: Format → Styles… (or <span class="kbd">F6</span>; on Touch Bar Macs use <span class="kbd">fn + F6</span>)</li>
           <li><b>Select the style to move</b> — click the style you use often</li>
           <li><b>Move with arrow buttons</b> — use the ▲▼ buttons on the right, or drag</li>
-          <li><b>Place in slots 1–5</b> — <span class="kbd">⌘ 0</span> = slot 1 (Body), <span class="kbd">⌘ 1</span> = slot 2, …, <span class="kbd">⌘ 4</span> = slot 5</li>
-          <li><b>Done</b> — closing the panel auto-saves. Try <span class="kbd">⌘ 0–4</span> in HWP to confirm</li>
+          <li><b>Place in slots 1–5</b> — <span class="kbd">⌃ 0</span> = slot 1 (Body), <span class="kbd">⌃ 1</span> = slot 2, …, <span class="kbd">⌃ 4</span> = slot 5</li>
+          <li><b>Done</b> — closing the panel auto-saves. Try <span class="kbd">⌃ 0–4</span> in HWP to confirm</li>
         </ol>
       </div>
       <p style="font-size: 13px; color: var(--muted);">The same guide is also available in the app's Settings → Shortcuts tab.</p>
@@ -224,7 +224,7 @@
         <li>Open the DMG, drag <b>HancomHotkey.app</b> to <b>Applications</b></li>
         <li>Launch from Launchpad</li>
         <li>Grant <b>Accessibility permission</b> on first run (see below)</li>
-        <li>In Hancom Office, hit <span class="kbd">⌘ 0–4</span> to verify</li>
+        <li>In Hancom Office, hit <span class="kbd">⌃ 0–4</span> to verify</li>
       </ol>
     </section>
 
@@ -232,7 +232,7 @@
       <h2>Why does it need Accessibility permission?</h2>
       <div class="card" style="margin-bottom: 16px;">
         <h3 style="margin-bottom: 12px;">▲ Key remapping requires macOS Accessibility permission</h3>
-        <p style="color: var(--text); margin-bottom: 12px;">Detecting <span class="kbd">⌘ 0</span> and substituting <span class="kbd">⌃ 1</span> is technically "key hooking" on macOS, which requires Accessibility privileges.</p>
+        <p style="color: var(--text); margin-bottom: 12px;">Detecting <span class="kbd">⌃ 0</span> and substituting <span class="kbd">⌃ 1</span> is technically "key hooking" on macOS, which requires Accessibility privileges.</p>
         <ul style="color: var(--muted); padding-left: 22px; margin: 0; line-height: 1.8;">
           <li>Only intercepts keys when HWP / Hancell / Hanshow is frontmost</li>
           <li>Auto-disables in Secure Input contexts (passwords, lock screens)</li>
@@ -259,10 +259,10 @@
       </details>
 
       <details class="faq">
-        <summary>I press ⌘0–4 but nothing happens</summary>
+        <summary>I press ⌃0–4 but nothing happens</summary>
         <div class="answer">
           <p>The most common cause: <b>HWP style list slots 1–5 are empty or contain auto-generated styles with no visual change</b>.</p>
-          <p>Hancom Mac auto-binds <span class="kbd">⌃ 1</span>–<span class="kbd">⌃ 0</span> by style list position. This app only translates <span class="kbd">⌘ 0–4</span> to <span class="kbd">⌃ 1–5</span> — if those slots have no meaningful style, nothing changes.</p>
+          <p>Hancom Mac auto-binds <span class="kbd">⌃ 1</span>–<span class="kbd">⌃ 0</span> by style list position. This app only translates <span class="kbd">⌃ 0–4</span> to <span class="kbd">⌃ 1–5</span> — if those slots have no meaningful style, nothing changes.</p>
           <p>Fix: follow the <a href="#hwp-setup">5-step setup above</a> to move your favorite styles into slots 1–5.</p>
           <p>Other things to verify:</p>
           <ul style="padding-left: 20px; margin: 8px 0 0;">
@@ -275,12 +275,12 @@
 
       <details class="faq">
         <summary>Can I customize the key bindings?</summary>
-        <div class="answer"><p>v0.4.0 ships with a fixed mapping (<span class="kbd">⌘ 0–4</span> → <span class="kbd">⌃ 1–5</span>). Custom mappings are under consideration — please file a request on <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/issues" rel="noopener">GitHub Issues</a>.</p></div>
+        <div class="answer"><p>v0.4.0 ships with a fixed mapping (<span class="kbd">⌃ 0–4</span> → <span class="kbd">⌃ 1–5</span>). Custom mappings are under consideration — please file a request on <a href="https://github.com/INNO-HI-Inc/hancom-hotkey/issues" rel="noopener">GitHub Issues</a>.</p></div>
       </details>
 
       <details class="faq">
         <summary>Does it interfere with other apps' shortcuts?</summary>
-        <div class="answer"><p>No. Remapping only fires when an HWP / Hancell / Hanshow window is frontmost. In Safari, Slack, Xcode, etc., <span class="kbd">⌘ 0–4</span> behaves normally. You can also pause everything with <span class="kbd">⌃⌥⌘P</span>.</p></div>
+        <div class="answer"><p>No. Remapping only fires when an HWP / Hancell / Hanshow window is frontmost. In Safari, Slack, Xcode, etc., <span class="kbd">⌃ 0–4</span> behaves normally. You can also pause everything with <span class="kbd">⌃⌥⌘P</span>.</p></div>
       </details>
 
       <details class="faq">
@@ -290,7 +290,7 @@
 
       <details class="faq">
         <summary>Are my keystrokes safe? What about passwords?</summary>
-        <div class="answer"><p>Yes. macOS triggers Secure Input mode in password fields (banking, 1Password, lock screen, etc.), and HancomHotkey detects this and <b>auto-disables remapping</b>.</p><p>The app never logs or transmits keystrokes — it intercepts ⌘0–4, sends ⌃1–5 instead, and discards from memory. The full source is on <a href="https://github.com/INNO-HI-Inc/hancom-hotkey" rel="noopener">GitHub</a> for verification.</p></div>
+        <div class="answer"><p>Yes. macOS triggers Secure Input mode in password fields (banking, 1Password, lock screen, etc.), and HancomHotkey detects this and <b>auto-disables remapping</b>.</p><p>The app never logs or transmits keystrokes — it intercepts ⌃0–4, sends ⌃1–5 instead, and discards from memory. The full source is on <a href="https://github.com/INNO-HI-Inc/hancom-hotkey" rel="noopener">GitHub</a> for verification.</p></div>
       </details>
 
       <details class="faq">

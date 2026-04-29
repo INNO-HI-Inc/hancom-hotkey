@@ -65,7 +65,7 @@ struct ShortcutsTabView: View {
                     .font(.headline)
             }
 
-            Text("HWP 안에서 **스타일 목록의 순서**를 바꾸세요. 예를 들어 \"본문 가.\" 를 ⌘0 로 쓰고 싶다면, HWP 스타일 목록의 **2번째** 자리로 옮기면 됩니다.")
+            Text("HWP 안에서 **스타일 목록의 순서**를 바꾸세요. 예를 들어 \"본문 가.\" 를 ⌘0 로 쓰고 싶다면, HWP 스타일 목록의 **1번째** 자리로 옮기면 됩니다 (⌘0은 1번째 = 바탕글 자리).")
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
 
@@ -76,8 +76,8 @@ struct ShortcutsTabView: View {
                      detail: "목록에서 원하는 스타일을 한 번 클릭")
                 step(num: "3", title: "위 / 아래 버튼으로 이동",
                      detail: "목록 우측의 ▲ ▼ 버튼, 또는 드래그로 원하는 자리까지 이동")
-                step(num: "4", title: "2 ~ 6번째 자리에 배치",
-                     detail: "위 매핑표처럼 ⌘0 은 2번째, ⌘1 은 3번째 … 자리를 사용")
+                step(num: "4", title: "1 ~ 5번째 자리에 배치",
+                     detail: "위 매핑표처럼 ⌘0 은 1번째(바탕글), ⌘1 은 2번째, … 자리를 사용")
                 step(num: "5", title: "완료",
                      detail: "창 닫으면 자동 저장. HWP에서 ⌘0~4 눌러 확인")
             }

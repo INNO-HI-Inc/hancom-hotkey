@@ -26,7 +26,7 @@
       }
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif; line-height: 1.7; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif; line-height: 1.7; font-size: 17px; }
     a { color: var(--accent); }
     a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
     .nav { padding: 20px 24px; border-bottom: 1px solid var(--border); }
@@ -54,10 +54,17 @@
     <h1>변경 이력</h1>
     <p class="lead">버전 관리는 <a href="https://semver.org/lang/ko/" rel="noopener">Semantic Versioning</a>을 따릅니다.</p>
 
-    <h2>v0.5.0 <span class="latest-badge">LATEST</span><span class="date">2026-04-29</span></h2>
+    <h2>v0.6.0 <span class="latest-badge">LATEST</span><span class="date">2026년 4월 29일</span></h2>
+    <h3>Changed (BREAKING)</h3>
+    <ul>
+      <li><b>트리거 키를 ⌘ → ⌃로 변경</b>: <code>⌃0~4 → ⌃1~5</code>. 한컴 Mac이 원래 <code>⌃1~0</code>로 스타일을 부여하므로 동일 시리즈로 통일. <code>⌃0</code>은 1번째(바탕글)부터 시작해 0-인덱스 멘탈 모델 제공.</li>
+      <li>schema v6 마이그레이션 (기존 v0.5.0 사용자 자동 초기화).</li>
+    </ul>
+
+    <h2>v0.5.0 <span class="date">2026년 4월 29일</span></h2>
     <h3>Changed</h3>
     <ul>
-      <li><b>기본 매핑을 1~5번째 슬롯으로 시프트</b>: <code>⌘0~4 → ⌃1~5</code> (이전: <code>⌃2~6</code>). <code>⌘0</code>이 HWP 1번째 슬롯(보통 "바탕글")부터 시작하도록 조정. 사용자 멘탈 모델과 1:1 직관 매핑.</li>
+      <li><b>기본 매핑을 1~5번째 슬롯으로 시프트</b>: <code>⌃0~4 → ⌃1~5</code> (이전: <code>⌃2~6</code>). <code>⌃0</code>이 HWP 1번째 슬롯(보통 "바탕글")부터 시작하도록 조정. 사용자 멘탈 모델과 1:1 직관 매핑.</li>
       <li>schema v5 마이그레이션: 기존 사용자는 새 기본값으로 자동 초기화.</li>
     </ul>
     <h3>Docs</h3>
@@ -65,7 +72,7 @@
       <li>"두 번 눌러야 글씨체까지 바뀜" FAQ 추가 — 한컴 HWP 의도된 동작 (한컴 공식 문서 인용).</li>
     </ul>
 
-    <h2>v0.4.0 <span class="date">2026-04-16</span></h2>
+    <h2>v0.4.0 <span class="date">2026년 4월 16일</span></h2>
     <h3>Added</h3>
     <ul>
       <li><b>Sparkle 자동 업데이트</b>: 24시간마다 새 버전 확인. 메뉴바·설정·정보 탭에서 수동 확인 가능.</li>
@@ -77,10 +84,10 @@
       <li><b>랜딩 페이지</b>: 제품 소개 + 다운로드 CTA 공식 사이트 오픈.</li>
     </ul>
 
-    <h2>v0.3.0 <span class="date">2026-04-16</span></h2>
+    <h2>v0.3.0 <span class="date">2026년 4월 16일</span></h2>
     <h3>Changed</h3>
     <ul>
-      <li><b>핵심 단순화</b>: 커스텀 매핑 편집 UI 제거 (⌘0~4 → ⌃2~6 고정 매핑 유지). HWP는 스타일 이름이 아니라 <b>스타일 목록 순서</b>로 단축키를 붙이므로, 앱에서 이름·타깃키를 편집하는 건 실사용에서 혼란만 야기.</li>
+      <li><b>핵심 단순화</b>: 커스텀 매핑 편집 UI 제거 (⌃0~4 → ⌃2~6 고정 매핑 유지). HWP는 스타일 이름이 아니라 <b>스타일 목록 순서</b>로 단축키를 붙이므로, 앱에서 이름·타깃키를 편집하는 건 실사용에서 혼란만 야기.</li>
       <li>설정 → 단축키 탭을 <b>읽기 전용 매핑 표 + HWP 스타일 순서 변경 5단계 가이드</b>로 재구성.</li>
     </ul>
     <h3>Removed</h3>
@@ -88,34 +95,34 @@
       <li>KeyCaptureView, AddMappingSheet, HwpShortcutGuideView 등 커스텀 매핑 관련 UI 제거.</li>
     </ul>
 
-    <h2>v0.2.3 <span class="date">2026-04-16</span></h2>
+    <h2>v0.2.3 <span class="date">2026년 4월 16일</span></h2>
     <h3>Fixed</h3>
     <ul>
       <li><b>매핑 편집·추가가 실제로 반영되지 않던 치명적 버그</b>. <code>@Published</code> sink 관찰자가 willSet 타이밍에 실행되어, UI는 새 값이지만 디스크 저장은 이전 값으로 되던 문제 수정 (didSet 기반 재작성).</li>
     </ul>
 
-    <h2>v0.2.2 <span class="date">2026-04-16</span></h2>
+    <h2>v0.2.2 <span class="date">2026년 4월 16일</span></h2>
     <h3>Changed</h3>
     <ul>
       <li>"매핑 추가"를 인라인 삽입 대신 <b>모달 시트 + 확인 버튼</b> 방식으로 개선. 중복 매핑 검증 추가.</li>
     </ul>
 
-    <h2>v0.2.1 <span class="date">2026-04-16</span></h2>
+    <h2>v0.2.1 <span class="date">2026년 4월 16일</span></h2>
     <h3>Fixed</h3>
     <ul>
       <li>설정 → 단축키 탭에서 매핑 편집 시 Auto Layout 무한 제약 루프로 앱이 강제 종료되던 문제 수정.</li>
     </ul>
 
-    <h2>v0.2.0 <span class="date">2026-04-16</span></h2>
+    <h2>v0.2.0 <span class="date">2026년 4월 16일</span></h2>
     <h3>Added</h3>
     <ul>
       <li><b>커스텀 매핑 편집</b>: 매핑 이름 인라인 편집, 입력/HWP 단축키 키 캡처, 매핑 추가/삭제. (v0.3.0에서 제거됨)</li>
     </ul>
 
-    <h2>v0.1.0 <span class="date">2026-04-16</span></h2>
+    <h2>v0.1.0 <span class="date">2026년 4월 16일</span></h2>
     <h3>Added</h3>
     <ul>
-      <li>HWP 활성 시 <code>⌘0~4</code> → <code>⌃2~6</code> 자동 리매핑.</li>
+      <li>HWP 활성 시 <code>⌃0~4</code> → <code>⌃2~6</code> 자동 리매핑.</li>
       <li>메뉴바 상주 유틸리티 (NSStatusItem, LSUIElement).</li>
       <li>접근성 권한 온보딩 화면, 설정 윈도우 3탭(일반/단축키/정보).</li>
       <li>로그인 시 자동 실행, Secure Input 자동 비활성, EventTap 자동 재활성.</li>

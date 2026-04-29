@@ -34,7 +34,7 @@ final class KeyMappingStore: ObservableObject {
     private let enabledKey = "mappingEnabled.v1"
     private let launchAtLoginKey = "launchAtLogin.v1"
     private let schemaVersionKey = "schemaVersion"
-    private let currentSchemaVersion = 5
+    private let currentSchemaVersion = 6
     private var isLoaded = false
 
     init(defaults: UserDefaults = .standard) {

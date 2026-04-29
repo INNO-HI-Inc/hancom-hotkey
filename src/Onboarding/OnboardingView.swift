@@ -64,16 +64,16 @@ struct OnboardingView: View {
 
     private var readyContent: some View {
         VStack(spacing: 16) {
-            Text("HWP에서 ⌘0 ~ ⌘4 를 눌러 스타일을 적용해보세요.")
+            Text("HWP에서 ⌃0 ~ ⌃4 를 눌러 스타일을 적용해보세요.")
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
 
             VStack(alignment: .leading, spacing: 6) {
-                shortcutRow(key: "⌘ 0", desc: "본문 가.")
-                shortcutRow(key: "⌘ 1", desc: "네모 12폰트")
-                shortcutRow(key: "⌘ 2", desc: "본문_동그라미")
-                shortcutRow(key: "⌘ 3", desc: "본문_삼각화살")
-                shortcutRow(key: "⌘ 4", desc: "본문점")
+                shortcutRow(key: "⌃ 0", desc: "본문 가.")
+                shortcutRow(key: "⌃ 1", desc: "네모 12폰트")
+                shortcutRow(key: "⌃ 2", desc: "본문_동그라미")
+                shortcutRow(key: "⌃ 3", desc: "본문_삼각화살")
+                shortcutRow(key: "⌃ 4", desc: "본문점")
             }
             .padding(16)
             .background(Color.primary.opacity(0.05))

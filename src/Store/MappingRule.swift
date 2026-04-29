@@ -44,20 +44,19 @@ extension MappingRule {
     }
 
     static func defaultHwpRules() -> [MappingRule] {
-        let cmd = UInt64(NSEvent.ModifierFlags.command.rawValue)
         let ctrl = UInt64(NSEvent.ModifierFlags.control.rawValue)
         let targets = hancomFamilyBundleIDs
 
         return [
-            MappingRule(name: "스타일 1번째 (바탕글)", fromKeycode: UInt16(kVK_ANSI_0), fromModifiers: cmd,
+            MappingRule(name: "스타일 1번째 (바탕글)", fromKeycode: UInt16(kVK_ANSI_0), fromModifiers: ctrl,
                         toKeycode: UInt16(kVK_ANSI_1), toModifiers: ctrl, targetBundleIDs: targets),
-            MappingRule(name: "스타일 2번째", fromKeycode: UInt16(kVK_ANSI_1), fromModifiers: cmd,
+            MappingRule(name: "스타일 2번째", fromKeycode: UInt16(kVK_ANSI_1), fromModifiers: ctrl,
                         toKeycode: UInt16(kVK_ANSI_2), toModifiers: ctrl, targetBundleIDs: targets),
-            MappingRule(name: "스타일 3번째", fromKeycode: UInt16(kVK_ANSI_2), fromModifiers: cmd,
+            MappingRule(name: "스타일 3번째", fromKeycode: UInt16(kVK_ANSI_2), fromModifiers: ctrl,
                         toKeycode: UInt16(kVK_ANSI_3), toModifiers: ctrl, targetBundleIDs: targets),
-            MappingRule(name: "스타일 4번째", fromKeycode: UInt16(kVK_ANSI_3), fromModifiers: cmd,
+            MappingRule(name: "스타일 4번째", fromKeycode: UInt16(kVK_ANSI_3), fromModifiers: ctrl,
                         toKeycode: UInt16(kVK_ANSI_4), toModifiers: ctrl, targetBundleIDs: targets),
-            MappingRule(name: "스타일 5번째", fromKeycode: UInt16(kVK_ANSI_4), fromModifiers: cmd,
+            MappingRule(name: "스타일 5번째", fromKeycode: UInt16(kVK_ANSI_4), fromModifiers: ctrl,
                         toKeycode: UInt16(kVK_ANSI_5), toModifiers: ctrl, targetBundleIDs: targets),
         ]
     }

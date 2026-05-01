@@ -22,6 +22,6 @@
 
   <g transform="translate(780,780)">
     <rect x="-72" y="-72" width="144" height="144" rx="28" ry="28" fill="#FFFFFF" opacity="0.95"/>
-    <text x="0" y="22" text-anchor="middle" fill="#2F4FB5" font-family="-apple-system, SF Pro Display, sans-serif" font-weight="700" font-size="112">⌘</text>
+    <text x="0" y="34" text-anchor="middle" fill="#2F4FB5" font-family="-apple-system, SF Pro Display, sans-serif" font-weight="800" font-size="148">⌃</text>
   </g>
 </svg>

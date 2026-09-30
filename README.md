@@ -1,6 +1,24 @@
+<div align="center">
+
 # 한컴단축키 (HancomHotkey)
 
-> macOS에서 한글(HWP)의 스타일 단축키를 `⌘ + 숫자`로 편하게 쓰는 메뉴바 유틸리티
+**한컴 오피스 Mac판에 없는 스타일 단축키를 `⌃0~4`로 채워드립니다.**
+
+macOS에서 한글(HWP)·한셀·한쇼의 스타일 단축키를 편하게 쓰는 메뉴바 유틸리티
+
+[![Release](https://img.shields.io/github/v/release/INNO-HI-Inc/hancom-hotkey?style=flat-square)](https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/INNO-HI-Inc/hancom-hotkey/total?style=flat-square)](https://github.com/INNO-HI-Inc/hancom-hotkey/releases)
+![macOS 13+](https://img.shields.io/badge/macOS-13%2B-000000?style=flat-square&logo=apple&logoColor=white)
+![Universal](https://img.shields.io/badge/Universal-Apple%20Silicon%20%2B%20Intel-555555?style=flat-square)
+![Swift](https://img.shields.io/badge/Swift-SwiftUI-F05138?style=flat-square&logo=swift&logoColor=white)
+
+<a href="https://inno-hi-inc.github.io/hancom-hotkey/"><img src="site/og-image.png" alt="한컴단축키 — ⌃0 누르면 1번째 스타일 적용" width="720"></a>
+
+**[무료 다운로드 (.dmg)](https://github.com/INNO-HI-Inc/hancom-hotkey/releases/latest/download/HancomHotkey-latest.dmg)** · **[소개 페이지](https://inno-hi-inc.github.io/hancom-hotkey/)** · **[릴리즈 노트](https://github.com/INNO-HI-Inc/hancom-hotkey/releases)**
+
+</div>
+
+---
 
 한컴오피스 Mac판은 스타일 목록 순서대로 `Ctrl+1~0`에 자동 단축키를 부여합니다 (1=바탕글, 2=2번째, …, 0=10번째). **한컴단축키**는 한글(HWP)·한셀·한쇼가 활성일 때만 `Ctrl+0~4`를 `Ctrl+1~5`로 시프트해 0-인덱스 단축키를 제공합니다 (`⌃0`=바탕글, `⌃1`=2번째, …, `⌃4`=5번째). 그 외 앱에서는 원래 단축키 그대로 동작합니다.
 
@@ -100,3 +118,9 @@ src/
 ## 문의
 
 - 이메일: board@innohi.ai.kr
+
+---
+
+<div align="center">
+<sub>Made by <a href="https://github.com/khwee2000">김민수 (@khwee2000)</a> · <a href="https://github.com/INNO-HI-Inc">INNO-HI</a></sub>
+</div>
